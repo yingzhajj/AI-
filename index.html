@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b36">
+<meta name="description" content="广州爱熊科技有限公司，专注AI商业应用与落地，为个人、企业与机构提供AI培训、工具应用、内容创意、商业策划与运营服务。">
+<title>广州爱熊科技有限公司｜让AI走进商业，让应用创造价值</title>
+<style>
+:root{
+  --navy:#071b36;--navy2:#0b2b50;--blue:#1677e8;--cyan:#62c8ff;
+  --ink:#14243a;--muted:#68788d;--paper:#f5f8fc;--line:#e5ebf3;
+  --white:#fff;--radius:22px;--shadow:0 18px 55px rgba(7,27,54,.10);
+  --max:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;font-family:Inter,"PingFang SC","Microsoft YaHei",Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+.container{width:min(var(--max),calc(100% - 48px));margin:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.eyebrow:before{content:"";width:24px;height:2px;background:currentColor}
+.section{padding:104px 0}
+.section-head{max-width:720px;margin-bottom:46px}
+.section-head h2{font-size:clamp(30px,4vw,48px);line-height:1.18;letter-spacing:-.04em;margin:16px 0}
+.section-head p{font-size:16px;color:var(--muted);margin:0;max-width:660px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 22px;border-radius:999px;font-weight:750;font-size:14px;transition:.25s;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:var(--blue);color:white;box-shadow:0 10px 26px rgba(22,119,232,.24)}
+.btn-primary:hover{background:#0865ce;transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:white;background:rgba(255,255,255,.06)}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.btn-light{background:#edf5ff;color:#1268cb}
+.arrow{font-size:18px;line-height:1}
+header{position:fixed;z-index:50;inset:0 0 auto;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(226,234,244,.8)}
+.nav-wrap{height:78px;display:flex;align-items:center;justify-content:space-between;gap:26px}
+.brand{display:flex;align-items:center;gap:12px;min-width:220px}
+.brand-mark{width:43px;height:43px;border-radius:14px;background:linear-gradient(145deg,#eaf5ff,#cfe8ff);display:grid;place-items:center;color:#1268cb;font-size:23px;font-weight:900;box-shadow:inset 0 0 0 1px #c5e1ff}
+.brand-name{font-weight:850;font-size:16px;line-height:1.2;color:var(--navy)}
+.brand-sub{font-size:9px;color:#8291a5;letter-spacing:.16em;margin-top:4px}
+.nav-links{display:flex;align-items:center;gap:27px;font-size:13px;font-weight:700;color:#42536a}
+.nav-links a{transition:.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--blue)}
+.nav-cta{padding:10px 17px;font-size:13px}
+.menu-toggle{display:none;border:0;background:#edf5ff;color:var(--navy);width:42px;height:42px;border-radius:12px;font-size:22px}
+.hero{min-height:720px;padding:160px 0 100px;background:
+ radial-gradient(circle at 78% 38%,rgba(31,133,255,.25),transparent 30%),
+ radial-gradient(circle at 90% 80%,rgba(51,194,255,.13),transparent 28%),
+ linear-gradient(118deg,#06172e 0%,#09284b 54%,#0b3763 100%);color:white;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(90deg,transparent,black 45%,black)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:60px}
+.hero .eyebrow{color:#8bcfff}
+.hero h1{font-size:clamp(42px,6.1vw,76px);line-height:1.12;letter-spacing:-.055em;margin:22px 0 22px;max-width:690px}
+.hero h1 em{font-style:normal;color:#75caff}
+.hero-copy{font-size:17px;line-height:1.9;color:#c3d5e8;max-width:620px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-note{display:flex;align-items:center;gap:12px;margin-top:52px;color:#a9bfd6;font-size:12px}
+.hero-note span{width:34px;height:1px;background:#5aa8e9}
+.hero-art{min-height:430px;position:relative;display:grid;place-items:center}
+.orbit{position:absolute;width:min(440px,100%);aspect-ratio:1;border:1px solid rgba(139,207,255,.22);border-radius:50%;box-shadow:0 0 90px rgba(33,143,255,.12),inset 0 0 70px rgba(33,143,255,.08)}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(139,207,255,.16);border-radius:50%;inset:42px}
+.orbit:after{inset:90px}
+.core{position:relative;width:260px;height:260px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#e9f7ff 0,#9bd9ff 17%,#247fd0 48%,#0a315c 78%);box-shadow:0 0 85px rgba(72,177,255,.34),inset -20px -24px 55px rgba(0,18,48,.45);border:1px solid rgba(255,255,255,.45)}
+.core-inner{width:185px;height:185px;border-radius:50%;border:1px solid rgba(255,255,255,.45);display:grid;place-items:center;color:white;text-align:center;background:rgba(4,30,60,.22);backdrop-filter:blur(4px)}
+.core-inner strong{font-size:38px;display:block;letter-spacing:-.06em}
+.core-inner small{font-size:11px;letter-spacing:.18em;color:#d5edff}
+.float-tag{position:absolute;padding:10px 15px;border:1px solid rgba(173,221,255,.25);background:rgba(8,41,75,.78);backdrop-filter:blur(12px);border-radius:13px;color:#e6f5ff;font-size:12px;box-shadow:0 10px 30px rgba(0,0,0,.14)}
+.tag-a{top:50px;left:0}.tag-b{right:-4px;top:112px}.tag-c{left:12px;bottom:66px}.tag-d{right:16px;bottom:38px}
+.hero-scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.2em;color:#7fa6c8}
+.trust-strip{background:#fff;border-bottom:1px solid var(--line)}
+.trust-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:25px 0;color:#61738a;font-size:13px}
+.trust-inner strong{color:var(--navy);font-size:14px}
+.trust-points{display:flex;gap:30px;flex-wrap:wrap}
+.trust-points span:before{content:"✓";color:var(--blue);font-weight:900;margin-right:8px}
+.services{background:var(--paper)}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.service-card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:28px 24px;min-height:260px;transition:.28s;position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#c9e1ff}
+.service-no{font-size:11px;color:#9aabc0;font-weight:800;letter-spacing:.12em}
+.service-icon{width:48px;height:48px;border-radius:15px;background:#edf6ff;color:var(--blue);display:grid;place-items:center;font-size:22px;margin:22px 0 18px}
+.service-card h3{font-size:19px;margin:0 0 10px;color:var(--navy)}
+.service-card p{font-size:13px;color:var(--muted);margin:0}
+.service-card a{display:inline-flex;margin-top:20px;color:var(--blue);font-size:12px;font-weight:800}
+.feature{background:#fff}
+.feature-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:72px;align-items:center}
+.feature-visual{min-height:490px;border-radius:28px;background:linear-gradient(145deg,#071b36,#0b477d);position:relative;overflow:hidden;padding:34px;color:white;display:flex;flex-direction:column;justify-content:space-between}
+.feature-visual:before{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(130,205,255,.22);border-radius:50%;right:-90px;top:30px;box-shadow:0 0 0 45px rgba(130,205,255,.035),0 0 0 90px rgba(130,205,255,.025)}
+.feature-visual:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:55px;top:105px;background:radial-gradient(circle at 35% 30%,#e8f8ff,#6ec4ff 24%,#1c6fb5 58%,#08284d 78%);box-shadow:0 0 80px rgba(82,181,255,.3)}
+.visual-label{position:relative;z-index:1;font-size:11px;letter-spacing:.18em;color:#a8d9ff}
+.visual-quote{position:relative;z-index:1;max-width:330px;font-size:29px;line-height:1.4;font-weight:800;letter-spacing:-.04em}
+.visual-foot{position:relative;z-index:1;color:#b5cce1;font-size:12px}
+.feature-copy h2{font-size:clamp(30px,4vw,46px);line-height:1.2;letter-spacing:-.04em;margin:16px 0}
+.feature-copy>p{color:var(--muted);font-size:15px}
+.content-types{display:grid;gap:0;margin-top:28px}
+.content-type{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:17px 0;border-top:1px solid var(--line)}
+.content-type b{color:var(--blue);font-size:12px;padding-top:3px}
+.content-type h3{font-size:16px;margin:0 0 5px}
+.content-type p{font-size:13px;color:var(--muted);margin:0}
+.process{background:#f4f8fd}
+.process-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.step{position:relative;padding:22px 15px;background:#fff;border:1px solid var(--line);border-radius:16px;min-height:142px}
+.step small{font-size:10px;color:var(--blue);font-weight:900;letter-spacing:.12em}
+.step h3{font-size:15px;margin:14px 0 6px}
+.step p{font-size:11px;color:var(--muted);margin:0}
+.audience-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.audience{padding:26px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.audience .symbol{font-size:23px;color:var(--blue)}
+.audience h3{font-size:17px;margin:15px 0 8px}
+.audience p{font-size:13px;color:var(--muted);margin:0}
+.about{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.about:after{content:"AI";position:absolute;right:5%;top:-90px;font-size:420px;font-weight:900;line-height:1;color:rgba(255,255,255,.025);pointer-events:none}
+.about-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.about .eyebrow{color:#7fcaff}
+.about h2{font-size:clamp(32px,4vw,50px);line-height:1.2;letter-spacing:-.04em;margin:18px 0}
+.about p{color:#bdcde0;font-size:15px}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.value{padding:22px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.045)}
+.value strong{font-size:16px;display:block;margin-bottom:7px}
+.value span{font-size:12px;color:#aebfd2}
+.cases{background:#fff}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.case-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:white}
+.case-cover{height:190px;display:flex;align-items:flex-end;padding:22px;color:white;position:relative;overflow:hidden;background:linear-gradient(135deg,#0b2b50,#1b7dc7)}
+.case-cover:before{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(255,255,255,.25);border-radius:50%;right:-25px;top:-60px;box-shadow:0 0 0 35px rgba(255,255,255,.05),0 0 0 70px rgba(255,255,255,.035)}
+.case-cover.alt{background:linear-gradient(135deg,#132b42,#426b87)}
+.case-cover.alt2{background:linear-gradient(135deg,#17345b,#526da0)}
+.case-cover span{position:relative;z-index:1;font-size:11px;letter-spacing:.14em;color:#d3eaff}
+.case-body{padding:22px}
+.case-body h3{margin:0 0 8px;font-size:17px}
+.case-body p{font-size:13px;color:var(--muted);margin:0}
+.case-tag{display:inline-block;margin-top:15px;padding:5px 9px;border-radius:6px;background:#fff4df;color:#96621b;font-size:10px;font-weight:800}
+.insight-note{font-size:12px;color:#8a99aa;margin-top:20px}
+.contact{background:linear-gradient(145deg,#edf5ff,#f8fbff)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:65px;align-items:start}
+.contact-copy h2{font-size:clamp(32px,4vw,48px);line-height:1.2;letter-spacing:-.04em;margin:16px 0}
+.contact-copy p{color:var(--muted);font-size:15px}
+.contact-points{margin-top:30px;display:grid;gap:13px;color:#52647a;font-size:13px}
+.contact-points span:before{content:"→";color:var(--blue);font-weight:900;margin-right:10px}
+.form-card{background:white;border:1px solid #e2eaf4;border-radius:22px;padding:30px;box-shadow:var(--shadow)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:12px;font-weight:800;color:#40536b}
+.field input,.field select,.field textarea{width:100%;border:1px solid #dce5f0;border-radius:10px;padding:12px 13px;background:#fbfdff;outline:none;color:var(--ink);font-size:13px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#75b9ff;box-shadow:0 0 0 3px #e8f4ff}
+.field textarea{min-height:110px;resize:vertical}
+.consent{display:flex;gap:9px;align-items:flex-start;font-size:11px;color:#78889b;margin:17px 0}
+.consent input{margin-top:4px}
+.form-note{font-size:10px;color:#9aa7b6;margin:12px 0 0}
+footer{background:#06162b;color:#b3c2d4;padding:54px 0 25px}
+.footer-top{display:flex;justify-content:space-between;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.12)}
+.footer-brand{max-width:410px}
+.footer-brand .brand-name{color:#fff}
+.footer-brand p{font-size:13px;color:#93a8bf}
+.footer-links{display:flex;gap:70px}
+.footer-links div{display:grid;align-content:start;gap:10px;font-size:12px}
+.footer-links strong{color:white;margin-bottom:7px}
+.footer-links a:hover{color:#7fcaff}
+.footer-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:22px;font-size:10px;color:#72879f}
+.mobile-cta{display:none}
+@media(max-width:1000px){
+ .nav-links{gap:14px}.nav-links a{font-size:12px}.brand{min-width:auto}
+ .hero-grid{gap:25px}.service-grid,.audience-grid{grid-template-columns:repeat(2,1fr)}
+ .process-grid{grid-template-columns:repeat(4,1fr)}
+ .feature-grid{gap:38px}.about-grid{gap:40px}
+}
+@media(max-width:760px){
+ .container{width:min(100% - 36px,var(--max))}
+ .section{padding:74px 0}
+ .nav-wrap{height:68px}.brand-mark{width:39px;height:39px}.brand-name{font-size:14px}
+ .menu-toggle{display:block}
+ .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:white;padding:18px 24px 24px;border-bottom:1px solid var(--line);box-shadow:0 18px 28px rgba(7,27,54,.08);flex-direction:column;align-items:stretch;gap:0}
+ .nav-links.open{display:flex}.nav-links a{padding:12px 4px;border-bottom:1px solid #edf1f6;font-size:14px}
+ .nav-cta{display:none}
+ .hero{padding:130px 0 80px;min-height:auto}
+ .hero-grid{grid-template-columns:1fr;gap:35px}.hero h1{font-size:46px}
+ .hero-art{min-height:330px}.orbit{width:310px}.core{width:205px;height:205px}.core-inner{width:148px;height:148px}.core-inner strong{font-size:30px}
+ .tag-a{left:0;top:20px}.tag-b{right:0;top:68px}.tag-c{left:0;bottom:32px}.tag-d{right:0;bottom:20px}
+ .trust-inner{align-items:flex-start;flex-direction:column}.trust-points{gap:12px 20px}
+ .service-grid,.audience-grid,.case-grid{grid-template-columns:1fr}
+ .feature-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+ .feature-visual{min-height:360px}.feature-visual:after{right:25px;top:90px;width:190px;height:190px}
+ .process-grid{grid-template-columns:repeat(2,1fr)}
+ .about-values{grid-template-columns:1fr 1fr}
+ .footer-top{flex-direction:column}.footer-links{gap:35px;flex-wrap:wrap}
+ .footer-bottom{flex-direction:column}
+ .form-card{padding:22px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
+ .mobile-cta{display:flex;position:fixed;z-index:45;bottom:12px;left:14px;right:14px;justify-content:center}
+ .mobile-cta a{width:100%;box-shadow:0 10px 30px rgba(22,119,232,.3)}
+ footer{padding-bottom:90px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="container nav-wrap">
+  <a class="brand" href="#home" aria-label="广州爱熊科技有限公司首页">
+   <div class="brand-mark" aria-hidden="true">熊</div>
+   <div><div class="brand-name">广州爱熊科技有限公司</div><div class="brand-sub">AI BUSINESS APPLICATION</div></div>
+  </a>
+  <nav class="nav-links" id="navLinks" aria-label="主导航">
+   <a href="#home">首页</a><a href="#about">关于爱熊</a><a href="#services">AI应用服务</a>
+   <a href="#stories">AI影像内容</a><a href="#training">培训与课程</a><a href="#cases">案例与洞察</a><a href="#contact">联系我们</a>
+  </nav>
+  <a class="btn btn-primary nav-cta" href="#contact">咨询合作 <span class="arrow">↗</span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="打开导航菜单" aria-expanded="false">☰</button>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="container hero-grid">
+  <div>
+   <div class="eyebrow">AI BUSINESS APPLICATION & IMPLEMENTATION</div>
+   <h1>让AI走进商业，<br><em>让应用创造价值。</em></h1>
+   <p class="hero-copy">广州爱熊科技有限公司，专注AI商业应用与落地，为个人、企业与机构提供培训、内容创意、工具应用与运营服务。</p>
+   <div class="hero-actions"><a class="btn btn-primary" href="#contact">咨询AI应用服务 <span class="arrow">↗</span></a><a class="btn btn-ghost" href="#stories">了解AI影像内容 <span class="arrow">→</span></a></div>
+   <div class="hero-note"><span></span>从真实需求出发，让AI能力进入实际业务场景</div>
+  </div>
+  <div class="hero-art" aria-label="AI商业应用视觉">
+   <div class="orbit"></div><div class="core"><div class="core-inner"><div><strong>AI熊</strong><small>IDEAS INTO VALUE</small></div></div></div>
+   <div class="float-tag tag-a">AI认知与培训</div><div class="float-tag tag-b">工具与工作流</div>
+   <div class="float-tag tag-c">影像内容创意</div><div class="float-tag tag-d">商业应用落地</div>
+  </div>
+ </div>
+ <div class="hero-scroll">SCROLL TO EXPLORE　↓</div>
+</section>
+
+<div class="trust-strip"><div class="container trust-inner"><strong>让AI从“能使用”走向“会应用”</strong><div class="trust-points"><span>面向真实业务需求</span><span>连接工具与应用场景</span><span>重视内容与交付</span></div></div></div>
+
+<section class="section services" id="services">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">WHAT WE DO</div><h2>从AI认知到商业落地，<br>提供适配业务需求的服务</h2><p>AI工具持续发展，真正的价值来自将工具、流程与业务场景结合。爱熊围绕客户的实际需求，提供从认知培训、工具应用到内容制作与运营落地的服务。</p></div>
+  <div class="service-grid">
+   <article class="service-card"><div class="service-no">01 / LEARNING</div><div class="service-icon">✳</div><h3>AI商业培训</h3><p>面向企业经营者、个人创业者与团队，提供AI认知、工具应用与实战培训。</p><a href="#training">了解培训与课程　→</a></article>
+   <article class="service-card"><div class="service-no">02 / WORKFLOW</div><div class="service-icon">⌘</div><h3>AI工具与工作流应用</h3><p>根据业务需求整合AI工具、智能体与工作流，帮助客户探索更适合自身的应用方式。</p><a href="#contact">咨询应用需求　→</a></article>
+   <article class="service-card"><div class="service-no">03 / CREATIVE</div><div class="service-icon">◈</div><h3>AI内容与创意服务</h3><p>围绕人物、企业与品牌，提供内容策划、AI影像制作与传播内容服务。</p><a href="#stories">了解影像内容　→</a></article>
+   <article class="service-card"><div class="service-no">04 / BUSINESS</div><div class="service-icon">↗</div><h3>AI商业策划与运营</h3><p>围绕客户经营场景，提供AI应用策划、流程设计、内容运营与项目协作支持。</p><a href="#contact">讨论合作方式　→</a></article>
+  </div>
+ </div>
+</section>
+
+<section class="section feature" id="stories">
+ <div class="container feature-grid">
+  <div class="feature-visual"><div class="visual-label">AI STORY FILM / HUMAN & BRAND</div><div class="visual-quote">把值得记录的故事，<br>做成可以珍藏与传播的影像内容。</div><div class="visual-foot">人物故事 · 家庭记忆 · 企业品牌</div></div>
+  <div class="feature-copy"><div class="eyebrow">FEATURED SERVICE</div><h2>让故事被看见，<br>让记忆有影像。</h2><p>通过人物访谈、故事采集、创意策划、剧本创作、AI影像生成与后期制作，将个人经历、家庭记忆、企业故事与品牌精神，转化为具有情感价值与传播价值的影像作品。</p>
+   <div class="content-types">
+    <div class="content-type"><b>01</b><div><h3>个人与家庭纪念影片</h3><p>老人回忆录、人生纪录片、父母故事、家族传承影片、生日及重要人生纪念影片。</p></div></div>
+    <div class="content-type"><b>02</b><div><h3>企业家与创始人故事</h3><p>企业家创业故事、创始人个人传记、企业发展历程、企业文化与品牌故事、创始人个人IP影片。</p></div></div>
+    <div class="content-type"><b>03</b><div><h3>企业品牌内容</h3><p>企业品牌短剧、产品故事剧、剧情广告、企业获客内容、品牌定制内容。</p></div></div>
+   </div>
+   <a class="btn btn-primary" href="#contact">咨询影片定制 <span class="arrow">↗</span></a>
+  </div>
+ </div>
+</section>
+
+<section class="section process">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">HOW WE WORK</div><h2>从需求沟通到成片交付，<br>建立清晰的项目流程</h2><p>每个项目根据题材、用途、制作难度与授权范围确定方案和交付内容。项目启动前，将通过沟通确认制作方向、时间安排与验收要求。</p></div>
+  <div class="process-grid">
+   <div class="step"><small>STEP 01</small><h3>需求沟通</h3><p>了解目标与使用场景</p></div>
+   <div class="step"><small>STEP 02</small><h3>故事采集</h3><p>梳理人物与核心素材</p></div>
+   <div class="step"><small>STEP 03</small><h3>创意策划</h3><p>确定内容方向与表达</p></div>
+   <div class="step"><small>STEP 04</small><h3>剧本创作</h3><p>形成结构与故事脚本</p></div>
+   <div class="step"><small>STEP 05</small><h3>AI内容制作</h3><p>完成影像内容生成</p></div>
+   <div class="step"><small>STEP 06</small><h3>后期制作</h3><p>剪辑、声音与包装</p></div>
+   <div class="step"><small>STEP 07</small><h3>审核交付</h3><p>确认成片与交付内容</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="training">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">WHO WE SERVE</div><h2>服务个人、企业与机构的<br>AI应用需求</h2><p>从个人创作到企业经营，从团队学习到项目协作，根据不同阶段与业务场景，探索适合的AI应用方式。</p></div>
+  <div class="audience-grid">
+   <article class="audience"><div class="symbol">◎</div><h3>个人创业者</h3><p>AI应用认知、个人内容创作、人物故事影像与个人品牌内容。</p></article>
+   <article class="audience"><div class="symbol">⌂</div><h3>一人公司与小微企业</h3><p>内容生产、营销支持、工具应用与日常工作流优化。</p></article>
+   <article class="audience"><div class="symbol">▦</div><h3>中小企业</h3><p>企业AI培训、内容营销、AI应用策划与业务流程支持。</p></article>
+   <article class="audience"><div class="symbol">◇</div><h3>机构与项目方</h3><p>培训合作、工具支持、内容制作、项目策划与运营协作。</p></article>
+  </div>
+  <div style="margin-top:28px"><a class="btn btn-light" href="#contact">咨询培训与合作 <span class="arrow">↗</span></a></div>
+ </div>
+</section>
+
+<section class="section about" id="about">
+ <div class="container about-grid">
+  <div><div class="eyebrow">ABOUT AI熊</div><h2>一家专注AI商业应用与落地的科技服务公司</h2><p>广州爱熊科技有限公司围绕个人创业者与企业的实际需求，整合AI技术、智能工具、商业策划、培训赋能与运营能力，探索AI在真实业务场景中的应用方式，帮助客户提升效率、创新模式、创造商业价值。</p><p>不以单一AI工具为边界，不以单一内容业务为限制，围绕客户真实需求，持续开发和提供具有商业价值的AI应用服务。</p><a class="btn btn-ghost" href="#contact">与爱熊建立联系 <span class="arrow">↗</span></a></div>
+  <div class="about-values">
+   <div class="value"><strong>以需求为起点</strong><span>从客户真实问题出发，匹配应用场景。</span></div>
+   <div class="value"><strong>以应用为核心</strong><span>关注工具、流程与业务之间的连接。</span></div>
+   <div class="value"><strong>以内容为载体</strong><span>让创意与技术共同形成有效表达。</span></div>
+   <div class="value"><strong>以落地为方向</strong><span>重视执行过程、成果质量与持续协作。</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="section cases" id="cases">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">CASES & INSIGHTS</div><h2>用项目与内容，<br>持续呈现AI应用的更多可能</h2><p>这里将逐步展示经授权的项目案例、内容作品、培训活动与行业观察。真实呈现过程与成果，让每一次合作都有迹可循。</p></div>
+  <div class="case-grid">
+   <article class="case-card"><div class="case-cover"><span>HUMAN STORY FILM</span></div><div class="case-body"><h3>AI人物故事影像</h3><p>以人物经历为线索，将记忆、情感与人生故事转化为影像表达。</p><span class="case-tag">创意方向展示</span></div></article>
+   <article class="case-card"><div class="case-cover alt"><span>BRAND STORY CONTENT</span></div><div class="case-body"><h3>企业品牌故事内容</h3><p>围绕企业发展、品牌理念与产品价值，探索更具感染力的内容表达。</p><span class="case-tag">创意方向展示</span></div></article>
+   <article class="case-card"><div class="case-cover alt2"><span>AI WORKFLOW PRACTICE</span></div><div class="case-body"><h3>AI应用与工作流实践</h3><p>结合实际工作任务，梳理工具组合、工作流程与内容生产方式。</p><span class="case-tag">内容方向展示</span></div></article>
+  </div>
+  <p class="insight-note">说明：以上为官网首版的内容展示方向，并非已完成客户案例。正式上线前请替换为已获授权的真实项目；如保留示意内容，应明确标注为“概念演示”。</p>
+ </div>
+</section>
+
+<section class="section contact" id="contact">
+ <div class="container contact-grid">
+  <div class="contact-copy"><div class="eyebrow">LET'S TALK</div><h2>说说你的需求，<br>我们一起找到AI应用方式。</h2><p>无论你希望记录一段人物故事、为企业制作品牌内容，还是探索AI培训与业务应用，都可以与我们联系。</p><div class="contact-points"><span>个人与家庭影像定制</span><span>企业AI应用与内容服务</span><span>培训课程与项目合作</span></div></div>
+  <form class="form-card" id="contactForm">
+   <div class="form-grid">
+    <div class="field"><label for="name">姓名 *</label><input id="name" name="name" required placeholder="请输入姓名"></div>
+    <div class="field"><label for="contactWay">手机号或邮箱 *</label><input id="contactWay" name="contactWay" required placeholder="方便联系到你的方式"></div>
+    <div class="field"><label for="identity">你的身份</label><select id="identity" name="identity"><option value="">请选择</option><option>个人</option><option>企业</option><option>机构</option><option>项目合作方</option></select></div>
+    <div class="field"><label for="service">感兴趣的服务</label><select id="service" name="service"><option value="">请选择服务</option><option>AI商业培训</option><option>AI工具与工作流应用</option><option>AI人物与家庭影片</option><option>企业品牌内容</option><option>AI商业策划与运营</option><option>其他合作</option></select></div>
+    <div class="field full"><label for="message">需求简述</label><textarea id="message" name="message" placeholder="简单介绍你的需求、项目情况或希望解决的问题"></textarea></div>
+   </div>
+   <label class="consent"><input type="checkbox" id="privacy" required><span>我已阅读并同意网站按照隐私政策处理本次咨询所提交的信息。</span></label>
+   <button class="btn btn-primary" type="submit">提交咨询 <span class="arrow">↗</span></button>
+   <p class="form-note">当前为网页演示表单，尚未连接后台。正式上线前需配置收件邮箱或CRM接口，并发布正式隐私政策。</p>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container">
+  <div class="footer-top">
+   <div class="footer-brand"><a class="brand" href="#home"><div class="brand-mark">熊</div><div><div class="brand-name">广州爱熊科技有限公司</div><div class="brand-sub">AI BUSINESS APPLICATION</div></div></a><p>让AI走进商业，让应用创造价值。<br>专注AI商业应用与落地，连接技术、内容与真实业务场景。</p></div>
+   <div class="footer-links">
+    <div><strong>探索爱熊</strong><a href="#about">关于爱熊</a><a href="#services">AI应用服务</a><a href="#stories">AI影像内容</a></div>
+    <div><strong>了解更多</strong><a href="#training">培训与课程</a><a href="#cases">案例与洞察</a><a href="#contact">联系我们</a></div>
+   </div>
+  </div>
+  <div class="footer-bottom"><span>© <span id="year"></span> 广州爱熊科技有限公司. All rights reserved.</span><span>品牌主张：让AI走进商业，让应用创造价值。</span></div>
+ </div>
+</footer>
+<div class="mobile-cta"><a class="btn btn-primary" href="#contact">预约咨询　↗</a></div>
+<script>
+const toggle=document.getElementById('menuToggle');
+const nav=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'×':'☰';});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰';}));
+document.getElementById('year').textContent=new Date().getFullYear();
+const sections=[...document.querySelectorAll('main section[id]')];
+const links=[...nav.querySelectorAll('a')];
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));}}),{rootMargin:'-35% 0px -55% 0px'});
+sections.forEach(section=>observer.observe(section));
+document.getElementById('contactForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ if(!e.currentTarget.reportValidity()) return;
+ alert('感谢提交！当前页面为演示版本，表单尚未连接后台。正式上线前请配置咨询信息接收方式。');
+});
+</script>
+</body>
+</html>
