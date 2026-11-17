@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="广州爱熊科技有限公司，专注AI商业应用与落地，让AI走进商业，让应用创造价值。">
+<title>AI熊｜让AI走进商业，让应用创造价值</title>
+<style>
+:root{
+  --navy:#07172f;--navy2:#0b2345;--blue:#2368e8;--cyan:#61d5ee;
+  --ink:#10213b;--muted:#64748b;--paper:#f5f8fc;--white:#fff;
+  --line:rgba(20,48,86,.12);--radius:22px;--max:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+.container{width:min(var(--max),calc(100% - 48px));margin:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.eyebrow:before{content:"";width:24px;height:2px;background:currentColor}
+.section{padding:108px 0}
+.section-head{max-width:720px;margin-bottom:48px}
+.section-head h2{font-size:clamp(32px,4vw,52px);line-height:1.16;letter-spacing:-.04em;margin:16px 0}
+.section-head p{color:var(--muted);font-size:17px;margin:0;max-width:640px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 22px;border-radius:999px;font-weight:700;border:1px solid transparent;transition:.25s;cursor:pointer}
+.btn-primary{background:var(--blue);color:white;box-shadow:0 12px 30px rgba(35,104,232,.24)}
+.btn-primary:hover{transform:translateY(-3px);background:#1558d5}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.06)}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+header{height:82px;position:fixed;inset:0 0 auto;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(20,48,86,.08)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.04em;font-size:22px}
+.brand-mark{width:40px;height:40px;border-radius:13px;background:linear-gradient(145deg,#eaf5ff,#d7e8ff);display:grid;place-items:center;position:relative;box-shadow:inset 0 0 0 1px rgba(35,104,232,.12)}
+.panda{font-size:24px;line-height:1;filter:saturate(.85)}
+.brand small{display:block;font-size:9px;letter-spacing:.16em;color:#72839b;font-weight:700;margin-top:-4px}
+.nav-links{display:flex;align-items:center;gap:30px;font-size:14px;color:#40516a}
+.nav-links a{transition:.2s}.nav-links a:hover{color:var(--blue)}
+.nav-cta{padding:10px 18px;border-radius:999px;background:var(--navy);color:white;font-size:13px;font-weight:700}
+.menu-btn{display:none;border:0;background:none;font-size:25px;color:var(--ink)}
+.hero{min-height:760px;padding:150px 0 90px;color:white;background:
+ radial-gradient(ellipse at 76% 42%,rgba(35,104,232,.34),transparent 38%),
+ radial-gradient(ellipse at 90% 5%,rgba(97,213,238,.16),transparent 32%),
+ linear-gradient(125deg,#061329 0%,#0a2041 58%,#102c55 100%);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;opacity:.16;background-image:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(90deg,transparent,#000 55%,#000)}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:42px}
+.hero .eyebrow{color:#83dff2}
+.hero h1{font-size:clamp(44px,6vw,76px);line-height:1.12;letter-spacing:-.055em;margin:24px 0}
+.hero h1 span{color:#83dff2}
+.hero-lead{font-size:19px;color:rgba(255,255,255,.76);max-width:600px;margin:0 0 32px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-note{display:flex;align-items:center;gap:18px;margin-top:48px;color:rgba(255,255,255,.55);font-size:12px;letter-spacing:.08em}
+.hero-note i{height:1px;width:44px;background:rgba(255,255,255,.3)}
+.hero-art{height:470px;position:relative;display:grid;place-items:center}
+.orbit{position:absolute;border:1px solid rgba(130,210,255,.22);border-radius:50%;transform:rotate(-24deg)}
+.orbit.one{width:440px;height:250px}.orbit.two{width:540px;height:340px;transform:rotate(35deg)}
+.orbit:before,.orbit:after{content:"";position:absolute;width:8px;height:8px;background:#79e4f2;border-radius:50%;box-shadow:0 0 22px #79e4f2}
+.orbit:before{top:18%;left:17%}.orbit:after{right:13%;bottom:19%}
+.core-glow{position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(53,133,255,.42),rgba(36,103,224,.08) 58%,transparent 72%);filter:blur(5px)}
+.hero-panda{position:relative;width:230px;height:230px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.25);box-shadow:0 30px 90px rgba(0,0,0,.28),inset 0 0 45px rgba(255,255,255,.1);font-size:118px}
+.float-tag{position:absolute;padding:11px 15px;border-radius:13px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.17);backdrop-filter:blur(12px);font-size:12px;color:#eaf7ff;box-shadow:0 15px 35px rgba(0,0,0,.14)}
+.tag-a{top:58px;left:5px}.tag-b{right:0;top:120px}.tag-c{bottom:48px;left:30px}.tag-d{right:15px;bottom:42px}
+.intro-strip{background:#fff;border-bottom:1px solid var(--line)}
+.strip-inner{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px;padding:28px 0}
+.strip-lead{font-weight:800;font-size:18px}.strip-item{border-left:1px solid var(--line);padding-left:25px;color:var(--muted);font-size:13px}.strip-item strong{display:block;color:var(--ink);font-size:15px;margin-bottom:3px}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+.about-statement{font-size:clamp(28px,3.3vw,42px);line-height:1.35;letter-spacing:-.04em;font-weight:800;margin:0}
+.about-statement em{font-style:normal;color:var(--blue)}
+.about-copy{color:var(--muted);font-size:16px}
+.about-copy p{margin:0 0 18px}
+.value-line{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.value{padding-top:18px;border-top:2px solid #dce7f5}
+.value b{display:block;font-size:15px;margin-bottom:5px}.value span{font-size:12px;color:var(--muted)}
+.business{background:var(--paper)}
+.business-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.business-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;min-height:270px;position:relative;overflow:hidden;transition:.28s}
+.business-card:hover{transform:translateY(-6px);box-shadow:0 22px 55px rgba(24,55,99,.09);border-color:rgba(35,104,232,.3)}
+.card-number{font-size:12px;color:var(--blue);font-weight:900;letter-spacing:.14em}
+.card-symbol{position:absolute;right:28px;top:22px;width:58px;height:58px;border-radius:18px;background:#edf4ff;color:var(--blue);display:grid;place-items:center;font-size:25px}
+.business-card h3{font-size:25px;margin:30px 0 10px;letter-spacing:-.03em}
+.business-card p{color:var(--muted);font-size:14px;max-width:440px;margin:0}
+.card-link{display:inline-flex;margin-top:24px;color:var(--blue);font-size:13px;font-weight:800}
+.solutions-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.solution-feature{background:linear-gradient(145deg,#0a1b36,#12396b);color:#fff;border-radius:26px;padding:42px;min-height:460px;position:relative;overflow:hidden}
+.solution-feature:after{content:"AI";position:absolute;right:-8px;bottom:-95px;font-size:290px;line-height:1;font-weight:900;color:rgba(255,255,255,.045);letter-spacing:-.1em}
+.solution-feature h3{font-size:34px;line-height:1.2;max-width:420px;margin:20px 0}
+.solution-feature p{color:rgba(255,255,255,.68);max-width:470px;font-size:15px}
+.solution-list{display:grid;gap:14px}
+.solution-item{padding:25px 26px;border:1px solid var(--line);border-radius:19px;display:flex;gap:18px;align-items:flex-start}
+.solution-icon{width:42px;height:42px;flex:none;border-radius:13px;background:#edf4ff;color:var(--blue);display:grid;place-items:center;font-size:19px}
+.solution-item h4{margin:0 0 5px;font-size:17px}.solution-item p{margin:0;color:var(--muted);font-size:13px}
+.path{background:#f5f8fc}
+.path-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.path-step{padding:25px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)}
+.path-step span{font-size:12px;color:var(--blue);font-weight:900;letter-spacing:.12em}
+.path-step h3{font-size:19px;margin:14px 0 7px}.path-step p{font-size:13px;color:var(--muted);margin:0}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.case-card{border-radius:21px;overflow:hidden;border:1px solid var(--line);background:white}
+.case-visual{height:190px;display:flex;align-items:flex-end;padding:22px;color:white;position:relative;overflow:hidden}
+.case-visual:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 25%,rgba(117,219,255,.5),transparent 25%),linear-gradient(135deg,#0b1c38,#1b5da9)}
+.case-visual.v2:before{background:radial-gradient(circle at 25% 30%,rgba(139,179,255,.45),transparent 28%),linear-gradient(135deg,#14223b,#4767a0)}
+.case-visual.v3:before{background:radial-gradient(circle at 75% 25%,rgba(104,224,220,.42),transparent 28%),linear-gradient(135deg,#092a3b,#177b8b)}
+.case-visual strong{position:relative;font-size:18px}
+.case-body{padding:22px}.case-body h3{margin:0 0 8px;font-size:18px}.case-body p{margin:0;color:var(--muted);font-size:13px}
+.case-note{font-size:12px;color:#8a98aa;margin-top:24px}
+.contact{background:var(--navy);color:white;position:relative;overflow:hidden}
+.contact:before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;right:-120px;top:-240px;background:radial-gradient(circle,rgba(35,104,232,.34),transparent 68%)}
+.contact-grid{position:relative;display:grid;grid-template-columns:1fr .85fr;gap:80px;align-items:start}
+.contact .section-head p{color:rgba(255,255,255,.62)}
+.contact-form{padding:30px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:22px}
+.field{margin-bottom:17px}.field label{display:block;font-size:12px;color:rgba(255,255,255,.7);margin-bottom:7px}
+.field input,.field textarea{width:100%;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);border-radius:11px;padding:12px 14px;color:#fff;outline:none}
+.field input:focus,.field textarea:focus{border-color:#79d9ee}.field textarea{min-height:100px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.35)}
+.form-hint{font-size:11px;color:rgba(255,255,255,.45);margin:12px 0 0}
+footer{background:#041024;color:rgba(255,255,255,.58);padding:30px 0;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer-brand{color:#fff;font-size:16px;font-weight:900}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+ .nav-links{gap:16px}.hero-inner,.about-grid,.solutions-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+ .hero{padding-top:130px}.hero-art{height:390px}.strip-inner{grid-template-columns:1fr 1fr}.strip-lead{grid-column:1/-1}
+ .path-grid{grid-template-columns:repeat(2,1fr)}.case-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+ .container{width:min(100% - 36px,var(--max))}.section{padding:76px 0}
+ header{height:70px}.menu-btn{display:block}.nav-cta{display:none}
+ .nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;padding:18px 24px 24px;box-shadow:0 18px 28px rgba(10,30,60,.1);flex-direction:column;align-items:stretch;gap:0}
+ .nav-links.open{display:flex}.nav-links a{padding:12px 0;border-bottom:1px solid var(--line)}
+ .hero{min-height:auto;padding:120px 0 65px}.hero h1{font-size:44px}.hero-lead{font-size:16px}
+ .hero-art{height:310px}.hero-panda{width:170px;height:170px;font-size:86px}.orbit.one{width:300px;height:180px}.orbit.two{width:340px;height:230px}
+ .tag-a{top:15px}.tag-b{top:65px}.tag-c{bottom:15px}.tag-d{bottom:12px}
+ .strip-inner{grid-template-columns:1fr;gap:18px}.strip-lead{grid-column:auto}.strip-item{border-left:0;border-top:1px solid var(--line);padding:14px 0 0}
+ .value-line,.business-grid,.path-grid,.case-grid{grid-template-columns:1fr}
+ .business-card{min-height:240px}.solution-feature{padding:30px;min-height:390px}.solution-feature h3{font-size:29px}
+ .contact-grid{gap:20px}.contact-form{padding:22px}.footer-inner{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="AI熊首页">
+      <span class="brand-mark"><span class="panda">🐼</span></span>
+      <span>AI熊<small>GUANGZHOU AI XIONG TECHNOLOGY</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">首页</a><a href="#about">关于爱熊</a><a href="#business">核心业务</a>
+      <a href="#solutions">产品与解决方案</a><a href="#cases">项目与场景</a><a href="#contact">联系我们</a>
+    </nav>
+    <a class="nav-cta" href="#contact">商务合作 ↗</a>
+    <button class="menu-btn" id="menuBtn" aria-label="打开导航">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div>
+      <div class="eyebrow">AI BUSINESS APPLICATION & IMPLEMENTATION</div>
+      <h1>让AI走进商业，<br><span>让应用创造价值。</span></h1>
+      <p class="hero-lead">广州爱熊科技有限公司，专注AI商业应用与落地。连接AI技术、内容生产与真实业务场景，帮助企业与个人把AI能力转化为可使用、可交付的生产力。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#business">了解核心业务 <span>→</span></a>
+        <a class="btn btn-ghost" href="#about">认识爱熊</a>
+      </div>
+      <div class="hero-note"><i></i> 科技的力量 · 商业的价值 · 人的温度</div>
+    </div>
+    <div class="hero-art" aria-label="AI熊品牌视觉展示">
+      <div class="orbit one"></div><div class="orbit two"></div><div class="core-glow"></div>
+      <div class="hero-panda">🐼</div>
+      <div class="float-tag tag-a">AI · 商业认知</div>
+      <div class="float-tag tag-b">智能工具与产品</div>
+      <div class="float-tag tag-c">AIGC · 内容创造</div>
+      <div class="float-tag tag-d">场景应用与落地</div>
+    </div>
+  </div>
+</section>
+
+<div class="intro-strip">
+ <div class="container strip-inner">
+  <div class="strip-lead">不止于了解AI，<br>更重要的是把AI用起来。</div>
+  <div class="strip-item"><strong>面向企业</strong>让AI融入经营、管理、营销与内容生产。</div>
+  <div class="strip-item"><strong>面向个人</strong>让创业者与一人公司获得新的效率工具与能力。</div>
+ </div>
+</div>
+
+<section class="section" id="about">
+ <div class="container">
+  <div class="section-head reveal"><div class="eyebrow">ABOUT AI XIONG</div><h2>关于爱熊</h2><p>以应用为导向，让技术真正进入业务现场。</p></div>
+  <div class="about-grid">
+   <p class="about-statement reveal">我们相信，<em>AI的价值</em><br>不在于技术本身，<br>而在于它能为真实世界<br>带来什么改变。</p>
+   <div class="about-copy reveal">
+    <p>广州爱熊科技有限公司是一家专注AI商业应用与落地的科技服务公司。我们关注人工智能技术如何与企业经营、内容创作、个人创业及商业服务相结合。</p>
+    <p>从AI认知与人才培养，到工具产品、内容生产和业务场景应用，爱熊致力于降低AI使用门槛，帮助客户找到适合自己的应用方式，把技术能力转化为实际工作成果。</p>
+    <p>我们坚持以真实需求为起点，以应用效果为方向，让科技更有温度，让创新更贴近商业。</p>
+    <div class="value-line">
+     <div class="value"><b>以人为本</b><span>关注真实的人与需求</span></div>
+     <div class="value"><b>以应用为先</b><span>从场景出发解决问题</span></div>
+     <div class="value"><b>以价值为目标</b><span>让技术创造实际价值</span></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section business" id="business">
+ <div class="container">
+  <div class="section-head reveal"><div class="eyebrow">WHAT WE DO</div><h2>核心业务</h2><p>围绕AI从认知、工具到内容与业务应用的关键环节，构建面向企业和个人的服务能力。</p></div>
+  <div class="business-grid">
+   <article class="business-card reveal">
+    <div class="card-number">01 / LEARNING</div><div class="card-symbol">✳</div>
+    <h3>AI商业认知与培训</h3>
+    <p>面向企业经营者、团队与个人创业者，提供AI认知、应用方法、实战训练与业务结合指导，帮助学习者理解AI、掌握工具、找到应用场景。</p>
+    <a class="card-link" href="#contact">了解培训与合作 →</a>
+   </article>
+   <article class="business-card reveal">
+    <div class="card-number">02 / TOOLS</div><div class="card-symbol">⌘</div>
+    <h3>AI工具与产品</h3>
+    <p>围绕实际工作需求，整合与应用AI工具能力，探索智能化工作流与产品化服务，帮助用户提升内容生产、信息处理和日常业务效率。</p>
+    <a class="card-link" href="#solutions">了解产品方向 →</a>
+   </article>
+   <article class="business-card reveal">
+    <div class="card-number">03 / CONTENT</div><div class="card-symbol">◈</div>
+    <h3>AI内容与创意服务</h3>
+    <p>运用AIGC能力开展创意策划与内容制作，覆盖AI视频、AI漫剧、人物故事、品牌内容等方向，让创意表达与内容生产拥有更多可能。</p>
+    <a class="card-link" href="#cases">查看应用场景 →</a>
+   </article>
+   <article class="business-card reveal">
+    <div class="card-number">04 / BUSINESS</div><div class="card-symbol">↗</div>
+    <h3>AI商业策划与运营</h3>
+    <p>从业务需求出发，协助梳理AI应用机会、设计业务流程与内容策略，推动AI能力与营销、服务、运营等真实场景结合。</p>
+    <a class="card-link" href="#contact">沟通业务需求 →</a>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="solutions">
+ <div class="container">
+  <div class="section-head reveal"><div class="eyebrow">PRODUCTS & SOLUTIONS</div><h2>产品与解决方案</h2><p>不以工具数量为目标，而以客户的实际问题为起点，组合适合的工具、流程、内容与服务。</p></div>
+  <div class="solutions-grid">
+   <div class="solution-feature reveal">
+    <div class="eyebrow">FROM TECHNOLOGY TO VALUE</div>
+    <h3>让AI能力，<br>成为真正可用的业务能力。</h3>
+    <p>针对不同阶段、不同规模的企业与个人，探索从认知学习、工具使用、内容生产到业务流程应用的组合方案。</p>
+    <a class="btn btn-primary" href="#contact" style="margin-top:22px">咨询解决方案 →</a>
+   </div>
+   <div class="solution-list">
+    <div class="solution-item reveal"><div class="solution-icon">✦</div><div><h4>AI智能工具应用</h4><p>聚合常用AI能力，围绕具体任务建立更顺畅的使用方式与工作流。</p></div></div>
+    <div class="solution-item reveal"><div class="solution-icon">▣</div><div><h4>AI内容生产</h4><p>将AI融入策划、文案、图像、视频等内容环节，提升创作与生产效率。</p></div></div>
+    <div class="solution-item reveal"><div class="solution-icon">▶</div><div><h4>AI漫剧与视频创作</h4><p>面向故事表达、人物内容与品牌传播，探索AI影像内容的创意和制作流程。</p></div></div>
+    <div class="solution-item reveal"><div class="solution-icon">⌘</div><div><h4>企业AI应用方案</h4><p>结合企业业务场景，梳理适用环节、工具选择、流程设计与落地路径。</p></div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section path">
+ <div class="container">
+  <div class="section-head reveal"><div class="eyebrow">OUR APPROACH</div><h2>从需求出发，让应用真正发生</h2><p>让AI落地不是简单购买工具，而是把需求、方法、工具和执行连接起来。</p></div>
+  <div class="path-grid">
+   <div class="path-step reveal"><span>STEP 01</span><h3>理解需求</h3><p>了解企业或个人正在面对的具体问题与目标。</p></div>
+   <div class="path-step reveal"><span>STEP 02</span><h3>匹配能力</h3><p>结合场景选择合适的AI工具、模型与内容方法。</p></div>
+   <div class="path-step reveal"><span>STEP 03</span><h3>设计应用</h3><p>把工具嵌入任务流程，形成可执行的工作方式。</p></div>
+   <div class="path-step reveal"><span>STEP 04</span><h3>持续优化</h3><p>根据实际使用反馈，持续调整流程与应用效果。</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="cases">
+ <div class="container">
+  <div class="section-head reveal"><div class="eyebrow">APPLICATION SCENARIOS</div><h2>项目与应用场景</h2><p>AI的应用可以发生在不同的行业、不同的岗位，也可以从一个具体的创意或业务问题开始。</p></div>
+  <div class="case-grid">
+   <article class="case-card reveal"><div class="case-visual"><strong>企业品牌内容</strong></div><div class="case-body"><h3>品牌故事与创意表达</h3><p>运用AI影像与内容创作方式，呈现企业品牌、人物经历与产品价值。</p></div></article>
+   <article class="case-card reveal"><div class="case-visual v2"><strong>个人IP与内容创作</strong></div><div class="case-body"><h3>个人表达与内容生产</h3><p>帮助创业者与专业人士探索AI辅助策划、文案、短视频和个人内容表达。</p></div></article>
+   <article class="case-card reveal"><div class="case-visual v3"><strong>企业工作流程</strong></div><div class="case-body"><h3>业务流程与效率提升</h3><p>结合具体工作任务，探索AI在信息整理、内容生产和日常运营中的应用。</p></div></article>
+  </div>
+  <p class="case-note">以上为业务应用场景示意，并非特定客户案例或已完成项目背书。正式上线前可替换为经确认的真实案例与作品。</p>
+ </div>
+</section>
+
+<section class="section contact" id="contact">
+ <div class="container contact-grid">
+  <div>
+   <div class="section-head reveal"><div class="eyebrow">CONTACT AI XIONG</div><h2>让我们一起，<br>把AI用到真实业务中。</h2><p>如果你正在寻找AI培训、工具应用、内容创作或企业AI落地服务，欢迎与爱熊交流。</p></div>
+   <div class="reveal" style="color:rgba(255,255,255,.7);font-size:14px">
+    <p><strong style="color:#fff">广州爱熊科技有限公司</strong></p>
+    <p>AI商业应用与落地科技服务公司</p>
+    <p>让AI走进商业，让应用创造价值。</p>
+   </div>
+  </div>
+  <form class="contact-form reveal" id="contactForm">
+   <div style="font-size:19px;font-weight:800;margin-bottom:22px">告诉我们你的需求</div>
+   <div class="field"><label for="name">称呼</label><input id="name" name="name" placeholder="怎么称呼你" required></div>
+   <div class="field"><label for="contactWay">联系方式</label><input id="contactWay" name="contactWay" placeholder="手机 / 微信 / 邮箱（任选其一）" required></div>
+   <div class="field"><label for="need">希望沟通的内容</label><textarea id="need" name="need" placeholder="简单描述你的业务需求或合作想法"></textarea></div>
+   <button class="btn btn-primary" type="submit" style="width:100%">提交咨询意向 →</button>
+   <p class="form-hint">当前为前端展示版表单，尚未连接后台。正式上线前需配置接收邮箱或客户线索系统。</p>
+  </form>
+ </div>
+</section>
+</main>
+<footer>
+ <div class="container footer-inner">
+  <div><div class="footer-brand">AI熊 · 广州爱熊科技有限公司</div><div>让AI走进商业，让应用创造价值。</div></div>
+  <div>© <span id="year"></span> 广州爱熊科技有限公司. All rights reserved.</div>
+ </div>
+</footer>
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>{navLinks.classList.toggle('open');menuBtn.textContent=navLinks.classList.contains('open')?'×':'☰';});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.textContent='☰';}));
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('contactForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ alert('感谢提交！当前网页尚未连接后台，请先通过页面提供的正式商务联系方式联系爱熊。');
+});
+</script>
+</body>
+</html>
